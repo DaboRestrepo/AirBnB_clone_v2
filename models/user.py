@@ -18,6 +18,7 @@ class User(BaseModel, Base):
         places = relationship("Place", cascade="all, delete", backref="user")
         reviews = relationship("Review", cascade="all, delete", backref="user")
     else:
+        """Attributes defAttributes definition for filestorage"""
         email = ""
         password = ""
         first_name = ""

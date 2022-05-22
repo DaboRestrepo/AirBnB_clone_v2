@@ -15,7 +15,7 @@ association_table = Table('place_amenity', Base.metadata,
 
 
 class Place(BaseModel, Base):
-    """ A place to stay """
+    """ Airbnb place"""
     from models import env_storage
     __tablename__ = 'places'
     if env_storage == 'db':

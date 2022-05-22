@@ -6,7 +6,7 @@ import models
 
 
 class Review(BaseModel, Base):
-    """ Review classto store review information """
+    """ Review class to store review information """
     from models import env_storage
     __tablename__ = 'reviews'
     if env_storage == 'db':

@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" State Module for HBNB project """
+""" Amenity Module for HBNB project """
 from models.base_model import Base, BaseModel
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 
 class Amenity(BaseModel, Base):
-    """Amenity to have"""
+    """Place Amenities"""
     from models import env_storage
     __tablename__ = 'amenities'
     if env_storage == 'db':

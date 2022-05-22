@@ -21,6 +21,6 @@ class State(BaseModel, Base):
             instances with state_id equals to the current State.id"""
             id_list = []
             for i in models.storage.all(City).values():
-                if City.state_id == self.id:
+                if i.state_id == self.id:
                     id_list.append(i)
             return id_list

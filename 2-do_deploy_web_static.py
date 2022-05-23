@@ -21,7 +21,7 @@ def do_deploy(archive_path):
         put(archive_path, '/tmp/')
         # Uncompress the file.
         run('mkdir -p ' + dir)
-        run('tar -xzf /tmp/' + filename + '-C' + file)
+        run('tar -xzf /tmp/' + filename + ' -C ' + dir)
         # delete the archive from the web server.
         run('rm /tmp/' + filename)
         # delete the current symbolic link.

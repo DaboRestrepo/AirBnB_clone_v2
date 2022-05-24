@@ -23,11 +23,11 @@ def do_deploy(archive_path):
         run('mkdir -p ' + dir)
         run('tar -xzf /tmp/' + filename + ' -C ' + dir)
         # delete the archive from the web server.
-        run('rm /tmp/' + archive_path)
+        run('rm -rf /tmp/' + filename)
         # delete the current symbolic link.
-        run('unlink /data/web_static/current')
+        run('rm -rf /data/web_static/current')
         # Create a new symbolic link.
-        run('ln -s ' + dir + '/data/web_static/current')
+        run('ln -s ' + dir + ' /data/web_static/current')
         print('New version deployed!')
         return True
     except Exception:

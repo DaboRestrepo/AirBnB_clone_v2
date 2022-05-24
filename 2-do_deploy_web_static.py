@@ -20,14 +20,19 @@ def do_deploy(archive_path):
         # Upload the archive to the /tmp/ directory of the web server
         put(archive_path, '/tmp/')
         # Uncompress the file.
-        run('mkdir -p ' + dir)
-        run('tar -xzf /tmp/' + filename + ' -C ' + dir)
+        run('mkdir -p ' + dir + '/')
+        run('tar -xzf /tmp/' + filename + ' -C ' + dir + '/')
         # delete the archive from the web server.
-        run('rm -rf /tmp/' + filename)
+        run('rm /tmp/' + filename)
+        # This apear in the intranet sample.
+        run('mv /data/web_static/releases/' + file + '/web_static/*\
+             /data/web_static/releases/' + file + '/')
+        # This appear in the intranet too.
+        run('rm -rf /data/web_static/releases/' + file + '/web_static')
         # delete the current symbolic link.
         run('rm -rf /data/web_static/current')
         # Create a new symbolic link.
-        run('ln -s ' + dir + ' /data/web_static/current')
+        run('ln -s ' + dir + '/ /data/web_static/current')
         print('New version deployed!')
         return True
     except Exception:

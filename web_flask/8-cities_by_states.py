@@ -4,6 +4,7 @@ from flask import Flask, render_template
 from models import *
 from models import storage
 from models.state import State
+from models.city import City
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
@@ -12,7 +13,9 @@ app.url_map.strict_slashes = False
 def states():
     """Display HTML state content."""
     states = storage.all(State).values()
-    return render_template('8-cities_by_states.html', states=states)
+    cities = storage.all(City).values()
+    return render_template('8-cities_by_states.html', states=states,
+                           cities=cities)
 
 
 @app.teardown_appcontext

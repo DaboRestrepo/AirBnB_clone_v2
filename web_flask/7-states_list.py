@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.rout('/states_list')
+@app.route('/states_list')
 def states():
     """Display HTML state content."""
     states = storage.all('State').values()

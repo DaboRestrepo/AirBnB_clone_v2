@@ -45,7 +45,7 @@ class DBStorage:
             objs = self.__session.query(cls).all()
             for obj in objs:
                 key = obj.__class__.__name__ + '.' + obj.id
-                setattr(dict, key, obj)
+                dict[key] = obj.to_dict()
         else:
             for some in classes:
                 objs = self.__session.query(classes[some]).all()
@@ -73,3 +73,7 @@ class DBStorage:
         session_factory = sessionmaker(bind=self.__engine,
                                        expire_on_commit=False)
         self.__session = scoped_session(session_factory)
+
+    def close(self):
+        """Close the session"""
+        self.__session.close()

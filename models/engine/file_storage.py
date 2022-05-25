@@ -60,3 +60,7 @@ class FileStorage:
         if obj is not None:
             key = "{}.{}".format(obj.__class__.__name__, obj.id)
             del self.__objects[key]
+
+    def close(self):
+        """Deserialice JSON objs."""
+        self.reload()

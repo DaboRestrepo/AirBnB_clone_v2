@@ -15,6 +15,8 @@ class State(BaseModel, Base):
         name = Column(String(128), nullable=False)
         cities = relationship("City", cascade="all, delete", backref="state")
     else:
+        name = ''
+
         @property
         def cities(self):
             """getter attribute cities that returns the list of City

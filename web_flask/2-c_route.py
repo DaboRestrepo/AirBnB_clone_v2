@@ -21,9 +21,7 @@ def hbnb():
 @app.route('/c/<text>')
 def text(text):
     """Display a C following by the text variable."""
-    if text.find('_'):
-        text.replace('_', ' ')
-    return 'C %s' % text
+    return 'C %s' % text.replace('_', ' ')
 
 
 if __name__ == '__main__':
